@@ -13,7 +13,13 @@ kaggle.json
 .env
 *.key
 
-# --- Datos pesados (se descargan con src/data/download.py) ---
+# --- Datos pesados: solo locales (se descargan con src/data/download.py) ---
+# Se ignora todo data/ excepto las fotos propias y los .gitkeep de la estructura.
+data/*
+!data/own/
+!data/raw/
+!data/interim/
+!data/processed/
 data/raw/*
 data/interim/*
 data/processed/*
