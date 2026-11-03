@@ -1,0 +1,30 @@
+# Datos y cálculo numérico
+numpy>=1.26
+pandas>=2.2
+scikit-learn>=1.5
+xgboost>=2.1
+joblib>=1.4
+
+# Visión por computador
+opencv-python>=4.10
+scikit-image>=0.24
+Pillow>=10.4
+
+# Deep learning (CNN)
+torch>=2.4
+torchvision>=0.19
+
+# Visualización y notebooks
+matplotlib>=3.9
+seaborn>=0.13
+jupyter>=1.1
+tqdm>=4.66
+
+# Despliegue (interfaz gráfica)
+streamlit>=1.39
+
+# Descarga del dataset
+kagglehub>=0.3
+
+# Pruebas
+pytest>=8.3

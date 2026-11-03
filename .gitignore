@@ -1,0 +1,38 @@
+# --- Entornos de Python ---
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# --- Credenciales (NUNCA subir) ---
+kaggle.json
+.env
+*.key
+
+# --- Datos pesados (se descargan con src/data/download.py) ---
+data/raw/*
+data/interim/*
+data/processed/*
+!data/**/.gitkeep
+*.crdownload
+*.zip
+
+# --- Artefactos de entrenamiento ---
+experiments/checkpoints/*
+experiments/logs/*
+!experiments/**/.gitkeep
+*.pt
+*.pth
+*.joblib
+*.pkl
+
+# --- Sistema / editores ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+~$*
