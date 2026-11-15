@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 612" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#344054"/>
+    </marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c4553a"/>
+    </marker>
+    <style>
+      .box { fill: #ffffff; stroke: #344054; stroke-width: 1.4; }
+      .hd  { font-size: 14px; font-weight: 700; fill: #101828; }
+      .tx  { font-size: 11px; fill: #344054; }
+      .fb  { font-size: 10.5px; fill: #c4553a; font-style: italic; }
+      .ln  { stroke: #344054; stroke-width: 1.6; fill: none; }
+      .lr  { stroke: #c4553a; stroke-width: 1.4; fill: none; stroke-dasharray: 5 4; }
+      .num { font-size: 13px; font-weight: 700; fill: #ffffff; }
+    </style>
+  </defs>
+  <rect width="960" height="612" fill="#ffffff"/>
+  <text x="480" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#101828">CRISP-DM aplicado a la clasificación de calidad de frutas</text>
+
+  <!-- Fila 1 -->
+  <g transform="translate(30,60)">
+    <rect class="box" width="270" height="185" rx="10"/>
+    <circle cx="22" cy="22" r="13" fill="#457b9d"/><text class="num" x="22" y="27" text-anchor="middle">1</text>
+    <text class="hd" x="44" y="27">Comprensión del negocio</text>
+    <text class="tx" x="16" y="55">• Clasificación manual: lenta, subjetiva</text>
+    <text class="tx" x="16" y="73">• Objetivo: 3 grados de calidad + tamaño</text>
+    <text class="tx" x="16" y="91">• Formulación: f: R^(128×128×3) → Δ¹²</text>
+    <text class="tx" x="16" y="109">• Éxito: F1-macro, precisión ≥ 95 % en</text>
+    <text class="tx" x="28" y="125">Primera y Descarte, &lt; 50 ms en CPU</text>
+    <text class="tx" x="16" y="143">• Ética e impactos (PI1, PI2)</text>
+    <text class="tx" x="16" y="161">• Usuarios: plazas de mercado, acopio</text>
+  </g>
+  <g transform="translate(345,60)">
+    <rect class="box" width="270" height="185" rx="10"/>
+    <circle cx="22" cy="22" r="13" fill="#457b9d"/><text class="num" x="22" y="27" text-anchor="middle">2</text>
+    <text class="hd" x="44" y="27">Comprensión de los datos</text>
+    <text class="tx" x="16" y="55">• FruitNet/Kaggle: 19.526 imágenes,</text>
+    <text class="tx" x="28" y="71">6 frutas × {buena, mala} + Mixed</text>
+    <text class="tx" x="16" y="89">• 39 % son copias aumentadas</text>
+    <text class="tx" x="16" y="107">• Ráfagas de la misma fruta</text>
+    <text class="tx" x="16" y="125">• Fondos, manos, varias frutas</text>
+    <text class="tx" x="16" y="143">• Sesgo: el fondo predice la calidad</text>
+    <text class="tx" x="28" y="159">(85 % solo con el borde)</text>
+  </g>
+  <g transform="translate(660,60)">
+    <rect class="box" width="270" height="185" rx="10"/>
+    <circle cx="22" cy="22" r="13" fill="#457b9d"/><text class="num" x="22" y="27" text-anchor="middle">3</text>
+    <text class="hd" x="44" y="27">Preparación de los datos</text>
+    <text class="tx" x="16" y="55">• 1 imagen por captura (sin copias)</text>
+    <text class="tx" x="16" y="73">• Partición 72/14/14 estratificada y</text>
+    <text class="tx" x="28" y="89">agrupada por ráfaga (sin fuga)</text>
+    <text class="tx" x="16" y="107">• Recorte central + 128×128</text>
+    <text class="tx" x="16" y="125">• 418 características: HSV, Lab,</text>
+    <text class="tx" x="28" y="141">LBP, GLCM, HOG (+ z-score)</text>
+    <text class="tx" x="16" y="159">• Segmentación de frutas en Mixed</text>
+  </g>
+
+  <!-- Fila 2 -->
+  <g transform="translate(660,330)">
+    <rect class="box" width="270" height="185" rx="10"/>
+    <circle cx="22" cy="22" r="13" fill="#457b9d"/><text class="num" x="22" y="27" text-anchor="middle">4</text>
+    <text class="hd" x="44" y="27">Modelado</text>
+    <text class="tx" x="16" y="55">• Línea base: regresión logística</text>
+    <text class="tx" x="16" y="73">• ML: SVM-RBF, Random Forest, XGBoost</text>
+    <text class="tx" x="28" y="89">GridSearch + CV agrupada (5 folds)</text>
+    <text class="tx" x="16" y="107">• CNN desde cero: 3 conv + GAP + densa</text>
+    <text class="tx" x="28" y="123">AdamW, coseno, aumento de datos,</text>
+    <text class="tx" x="28" y="139">parada temprana (F1 de validación)</text>
+    <text class="tx" x="16" y="157">• Pesos de clase N/(K·Nₖ)</text>
+  </g>
+  <g transform="translate(345,330)">
+    <rect class="box" width="270" height="185" rx="10"/>
+    <circle cx="22" cy="22" r="13" fill="#457b9d"/><text class="num" x="22" y="27" text-anchor="middle">5</text>
+    <text class="hd" x="44" y="27">Evaluación</text>
+    <text class="tx" x="16" y="55">• Prueba: F1-macro, exactitud, AUC</text>
+    <text class="tx" x="16" y="73">• Matrices de confusión, sobreajuste</text>
+    <text class="tx" x="16" y="91">• Umbrales de grado (Chow) en val.</text>
+    <text class="tx" x="16" y="109">• Grad-CAM: ¿mira la fruta o el fondo?</text>
+    <text class="tx" x="16" y="127">• Externa: recortes Mixed y fotos</text>
+    <text class="tx" x="28" y="143">propias anotadas por el grupo</text>
+    <text class="tx" x="16" y="161">• Comparación con la literatura</text>
+  </g>
+  <g transform="translate(30,330)">
+    <rect class="box" width="270" height="185" rx="10"/>
+    <circle cx="22" cy="22" r="13" fill="#457b9d"/><text class="num" x="22" y="27" text-anchor="middle">6</text>
+    <text class="hd" x="44" y="27">Despliegue</text>
+    <text class="tx" x="16" y="55">• App Streamlit: archivo o cámara</text>
+    <text class="tx" x="16" y="73">• Salidas: fruta, grado, P(buena),</text>
+    <text class="tx" x="28" y="89">tamaño y máscara</text>
+    <text class="tx" x="16" y="107">• Inferencia en CPU (sin GPU)</text>
+    <text class="tx" x="16" y="125">• Avisos de baja confianza</text>
+    <text class="tx" x="16" y="143">• Futuro: Raspberry Pi en línea</text>
+    <text class="tx" x="28" y="159">de empaque</text>
+  </g>
+
+  <!-- Flujo principal -->
+  <path class="ln" d="M300,152 L343,152" marker-end="url(#a)"/>
+  <path class="ln" d="M615,152 L658,152" marker-end="url(#a)"/>
+  <path class="ln" d="M795,245 L795,328" marker-end="url(#a)"/>
+  <path class="ln" d="M660,422 L617,422" marker-end="url(#a)"/>
+  <path class="ln" d="M345,422 L302,422" marker-end="url(#a)"/>
+
+  <!-- Retroalimentaciones -->
+  <path class="lr" d="M440,245 C440,290 230,290 200,247" marker-end="url(#r)"/>
+  <text class="fb" x="250" y="300">sesgo de fondo → redefinir criterios de éxito</text>
+  <path class="lr" d="M520,328 C530,268 700,268 720,247" marker-end="url(#r)"/>
+  <text class="fb" x="548" y="318">métricas infladas → deduplicar y agrupar</text>
+  <path class="lr" d="M480,515 C480,575 180,575 165,517" marker-end="url(#r)"/>
+  <text class="fb" x="170" y="600">grados y umbrales validados → configuración de la app</text>
+  <path class="lr" d="M600,515 C640,580 900,580 860,517" marker-end="url(#r)"/>
+  <text class="fb" x="610" y="600">errores y sobreajuste → reajustar hiperparámetros</text>
+</svg>
