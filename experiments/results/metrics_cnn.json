@@ -1,0 +1,54 @@
+{
+  "model": "cnn",
+  "params": {
+    "lr": 0.001,
+    "dropout": 0.3,
+    "weight_decay": 0.0001,
+    "width": 32,
+    "size": 96,
+    "epochs": 35,
+    "patience": 8,
+    "batch": 64,
+    "threads": 12,
+    "workers": 2,
+    "tag": "cnn"
+  },
+  "n_parameters": 113068,
+  "best_epoch": 34,
+  "train_seconds": 2426.1,
+  "train": {
+    "joint_accuracy": 0.9465214161921268,
+    "joint_f1_macro": 0.946546760829191,
+    "joint_log_loss": 0.17460417747497559,
+    "quality_accuracy": 0.977964842782867,
+    "quality_balanced_accuracy": 0.9788562906441087,
+    "quality_f1_macro": 0.9776866342398443,
+    "quality_roc_auc": 0.9979173666226162,
+    "fruit_accuracy": 0.9603862342163902,
+    "fruit_f1_macro": 0.95995450776575
+  },
+  "val": {
+    "joint_accuracy": 0.8820987654320988,
+    "joint_f1_macro": 0.8813759653883242,
+    "joint_log_loss": 0.41439223289489746,
+    "quality_accuracy": 0.9617283950617284,
+    "quality_balanced_accuracy": 0.9648649692848588,
+    "quality_f1_macro": 0.9614404176904177,
+    "quality_roc_auc": 0.9915713016265503,
+    "fruit_accuracy": 0.9061728395061729,
+    "fruit_f1_macro": 0.9061524324614103,
+    "ms_per_image": 3.211852650583526
+  },
+  "test": {
+    "joint_accuracy": 0.9052044609665427,
+    "joint_f1_macro": 0.9094158747989641,
+    "joint_log_loss": 0.31048208475112915,
+    "quality_accuracy": 0.9578686493184635,
+    "quality_balanced_accuracy": 0.9601399527776262,
+    "quality_f1_macro": 0.9574609927318731,
+    "quality_roc_auc": 0.9943442246101816,
+    "fruit_accuracy": 0.9318463444857497,
+    "fruit_f1_macro": 0.9328816821105481,
+    "ms_per_image": 3.12356021176779
+  }
+}

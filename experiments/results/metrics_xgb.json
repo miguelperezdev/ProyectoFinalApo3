@@ -1,0 +1,45 @@
+{
+  "model": "xgb",
+  "features": "full",
+  "best_params": {
+    "learning_rate": 0.05,
+    "max_depth": 6
+  },
+  "cv_f1_macro": 0.8609005685291287,
+  "search_seconds": 1172.4,
+  "train": {
+    "joint_accuracy": 1.0,
+    "joint_f1_macro": 1.0,
+    "joint_log_loss": 0.003017774084582925,
+    "quality_accuracy": 1.0,
+    "quality_balanced_accuracy": 1.0,
+    "quality_f1_macro": 1.0,
+    "quality_roc_auc": 1.0,
+    "fruit_accuracy": 1.0,
+    "fruit_f1_macro": 1.0
+  },
+  "val": {
+    "joint_accuracy": 0.8814814814814815,
+    "joint_f1_macro": 0.88308149766192,
+    "joint_log_loss": 0.3689958453178406,
+    "quality_accuracy": 0.9574074074074074,
+    "quality_balanced_accuracy": 0.9589421628095661,
+    "quality_f1_macro": 0.9569825270860377,
+    "quality_roc_auc": 0.99483058378086,
+    "fruit_accuracy": 0.9098765432098765,
+    "fruit_f1_macro": 0.9105011503427601,
+    "ms_per_image": 0.015386092809983242
+  },
+  "test": {
+    "joint_accuracy": 0.909541511771995,
+    "joint_f1_macro": 0.9120466994833305,
+    "joint_log_loss": 0.26058074831962585,
+    "quality_accuracy": 0.9653035935563816,
+    "quality_balanced_accuracy": 0.9652424627325078,
+    "quality_f1_macro": 0.9648160143501333,
+    "quality_roc_auc": 0.9951484076085686,
+    "fruit_accuracy": 0.9355638166047088,
+    "fruit_f1_macro": 0.9365394172036107,
+    "ms_per_image": 0.014786678914539286
+  }
+}
