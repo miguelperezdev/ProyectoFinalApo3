@@ -1,0 +1,123 @@
+archivo,pred_fruit,confianza,p_good,pred_grade,fruta,archivo_original,rechazada
+fresa_001.jpeg,apple,0.40194857120513916,0.04760938137769699,Segunda,fresa,Fresa/Fresa (1).jpeg,True
+fresa_002.jpeg,apple,0.8247756958007812,0.206712007522583,Segunda,fresa,Fresa/Fresa (2).jpeg,False
+fresa_003.jpeg,apple,0.9079976081848145,0.49362319707870483,Primera,fresa,Fresa/Fresa (3).jpeg,False
+fresa_004.jpeg,pomegranate,0.7412652969360352,0.24894654750823975,Segunda,fresa,Fresa/Fresa (4).jpeg,False
+fresa_005.jpeg,apple,0.9235001802444458,0.9031309485435486,Primera,fresa,Fresa/Fresa (5).jpeg,False
+fresa_006.jpeg,apple,0.9913740158081055,0.9753729701042175,Primera,fresa,Fresa/Fresa (6).jpeg,False
+fresa_007.jpeg,apple,0.9975627660751343,0.9971426725387573,Primera,fresa,Fresa/Fresa (7).jpeg,False
+fresa_008.jpeg,apple,0.9846631288528442,0.9928552508354187,Primera,fresa,Fresa/Fresa (8).jpeg,False
+fresa_009.jpeg,apple,0.983511745929718,0.3676459789276123,Segunda,fresa,Fresa/Fresa (9).jpeg,False
+fresa_010.jpeg,apple,0.8279206156730652,0.8187360167503357,Primera,fresa,Fresa/Fresa (10).jpeg,False
+fresa_011.jpeg,apple,0.9752770662307739,0.9616276025772095,Primera,fresa,Fresa/Fresa (11).jpeg,False
+fresa_012.jpeg,apple,0.9979881048202515,0.998863160610199,Primera,fresa,Fresa/Fresa (12).jpeg,False
+fresa_013.jpeg,apple,0.9164196252822876,0.9328380823135376,Primera,fresa,Fresa/Fresa (13).jpeg,False
+fresa_014.jpeg,apple,0.9975880980491638,0.9984603524208069,Primera,fresa,Fresa/Fresa (15).jpeg,False
+fresa_015.jpeg,apple,0.8290672898292542,0.9685747623443604,Primera,fresa,Fresa/Fresa (16).jpeg,False
+fresa_016.jpeg,apple,0.5937132835388184,0.9387557506561279,Primera,fresa,Fresa/Fresa (17).jpeg,False
+fresa_017.jpeg,apple,0.5524548292160034,0.8777784109115601,Primera,fresa,Fresa/Fresa (18).jpeg,True
+fresa_018.jpeg,apple,0.5641029477119446,0.9124822020530701,Primera,fresa,Fresa/Fresa (19).jpeg,False
+fresa_019.jpeg,apple,0.7298259735107422,0.9819985032081604,Primera,fresa,Fresa/Fresa (20).jpeg,False
+fresa_020.jpeg,lime,0.5603480935096741,0.93436598777771,Primera,fresa,Fresa/Fresa (21).jpeg,False
+fresa_021.jpeg,apple,0.47215142846107483,0.9424760341644287,Primera,fresa,Fresa/Fresa (22).jpeg,True
+fresa_022.jpeg,lime,0.5698531270027161,0.9068946242332458,Primera,fresa,Fresa/Fresa (23).jpeg,False
+fresa_023.jpeg,lime,0.49856463074684143,0.9003741145133972,Primera,fresa,Fresa/Fresa (24).jpeg,True
+fresa_024.jpeg,apple,0.4751071035861969,0.9203774929046631,Primera,fresa,Fresa/Fresa (25).jpeg,True
+fresa_025.jpeg,apple,0.7775898575782776,0.9800019264221191,Primera,fresa,Fresa/Fresa (26).jpeg,False
+fresa_026.jpeg,apple,0.8495400547981262,0.9785318970680237,Primera,fresa,Fresa/Fresa (27).jpeg,False
+fresa_027.jpeg,apple,0.9839524626731873,0.996163547039032,Primera,fresa,Fresa/Fresa (28).jpeg,False
+fresa_028.jpeg,apple,0.9800075888633728,0.9961880445480347,Primera,fresa,Fresa/Fresa (29).jpeg,False
+fresa_029.jpeg,apple,0.9919243454933167,0.9980981349945068,Primera,fresa,Fresa/Fresa (30).jpeg,False
+fresa_030.jpeg,apple,0.9950402975082397,0.9985822439193726,Primera,fresa,Fresa/Fresa (31).jpeg,False
+fresa_031.jpeg,apple,0.9895390868186951,0.9969215393066406,Primera,fresa,Fresa/Fresa (32).jpeg,False
+fresa_032.jpeg,apple,0.9897243976593018,0.997877836227417,Primera,fresa,Fresa/Fresa (33).jpeg,False
+fresa_033.jpeg,apple,0.9897359609603882,0.9961110353469849,Primera,fresa,Fresa/Fresa (34).jpeg,False
+fresa_034.jpeg,apple,0.9954890012741089,0.9988987445831299,Primera,fresa,Fresa/Fresa (35).jpeg,False
+fresa_035.jpeg,apple,0.9954679608345032,0.999059796333313,Primera,fresa,Fresa/Fresa (36).jpeg,False
+fresa_036.jpeg,apple,0.9966089129447937,0.9990599155426025,Primera,fresa,Fresa/Fresa (37).jpeg,False
+fresa_037.jpeg,apple,0.9914391040802002,0.9983877539634705,Primera,fresa,Fresa/Fresa (38).jpeg,False
+fresa_038.jpeg,apple,0.9896364808082581,0.997962474822998,Primera,fresa,Fresa/Fresa (39).jpeg,False
+fresa_039.jpeg,apple,0.9935544729232788,0.9985939264297485,Primera,fresa,Fresa/Fresa (40).jpeg,False
+fresa_040.jpeg,apple,0.9920303821563721,0.9979237914085388,Primera,fresa,Fresa/Fresa (41).jpeg,False
+fresa_041.jpeg,apple,0.9888317584991455,0.9973716735839844,Primera,fresa,Fresa/Fresa (42).jpeg,False
+fresa_042.jpeg,apple,0.939771294593811,0.9808456897735596,Primera,fresa,Fresa/Fresa (43).jpeg,False
+fresa_043.jpeg,apple,0.9436666965484619,0.9872294068336487,Primera,fresa,Fresa/Fresa (44).jpeg,False
+fresa_044.jpeg,apple,0.9975540637969971,0.9991491436958313,Primera,fresa,Fresa/Fresa (45).jpeg,False
+fresa_045.jpeg,apple,0.8367658257484436,0.947759747505188,Primera,fresa,Fresa/Fresa (46).jpeg,False
+fresa_046.jpeg,apple,0.8618332743644714,0.9042259454727173,Primera,fresa,Fresa/Fresa (47).jpeg,False
+fresa_047.jpeg,apple,0.8393367528915405,0.9112152457237244,Primera,fresa,Fresa/Fresa (48).jpeg,False
+fresa_048.jpeg,apple,0.8524852991104126,0.913340151309967,Primera,fresa,Fresa/Fresa (49).jpeg,False
+fresa_049.jpeg,apple,0.8583806157112122,0.931233286857605,Primera,fresa,Fresa/Fresa (50).jpeg,False
+fresa_050.jpeg,apple,0.7427855730056763,0.9631362557411194,Primera,fresa,Fresa/Fresa (51).jpeg,False
+fresa_051.jpeg,apple,0.8275336027145386,0.9366689324378967,Primera,fresa,Fresa/Fresa (52).jpeg,False
+fresa_052.jpeg,apple,0.989682137966156,0.9978513121604919,Primera,fresa,Fresa/Fresa (53).jpeg,False
+lulo_001.jpeg,orange,0.6273841857910156,0.05678887292742729,Segunda,lulo,Lulo/Lulo (1).jpeg,False
+lulo_002.jpeg,pomegranate,0.7991437315940857,0.018892474472522736,Segunda,lulo,Lulo/Lulo (2).jpeg,False
+lulo_003.jpeg,apple,0.5204963088035583,0.3462197184562683,Segunda,lulo,Lulo/Lulo (3).jpeg,True
+lulo_004.jpeg,pomegranate,0.7265755534172058,0.03667788207530975,Segunda,lulo,Lulo/Lulo (4).jpeg,False
+lulo_005.jpeg,orange,0.9909546971321106,0.027928264811635017,Segunda,lulo,Lulo/Lulo (5).jpeg,False
+lulo_006.jpeg,orange,0.9212832450866699,0.1534774750471115,Segunda,lulo,Lulo/Lulo (6).jpeg,False
+lulo_007.jpeg,orange,0.7116626501083374,0.5198429226875305,Primera,lulo,Lulo/Lulo (7).jpeg,False
+lulo_008.jpeg,apple,0.4053053557872772,0.14336034655570984,Segunda,lulo,Lulo/Lulo (8).jpeg,True
+lulo_009.jpeg,orange,0.8753690123558044,0.1775144636631012,Segunda,lulo,Lulo/Lulo (9).jpeg,False
+lulo_010.jpeg,orange,0.9776493906974792,0.10087939351797104,Segunda,lulo,Lulo/Lulo (10).jpeg,False
+lulo_011.jpeg,orange,0.9894769191741943,0.12028773874044418,Segunda,lulo,Lulo/Lulo (11).jpeg,False
+lulo_012.jpeg,orange,0.8449391722679138,0.25591298937797546,Segunda,lulo,Lulo/Lulo (12).jpeg,False
+lulo_013.jpeg,orange,0.9288501143455505,0.19095855951309204,Segunda,lulo,Lulo/Lulo (13).jpeg,False
+lulo_014.jpeg,orange,0.9919991493225098,0.02048764005303383,Segunda,lulo,Lulo/Lulo (14).jpeg,False
+tomate_001.jpeg,pomegranate,0.47336074709892273,0.2904081642627716,Segunda,tomate,Tomate/Tomate (1).jpeg,True
+tomate_002.jpeg,pomegranate,0.8035398125648499,0.12684975564479828,Segunda,tomate,Tomate/Tomate (2).jpeg,False
+tomate_003.jpeg,apple,0.9371166229248047,0.9883009791374207,Primera,tomate,Tomate/Tomate (3).jpeg,False
+tomate_004.jpeg,apple,0.9783064723014832,0.996488094329834,Primera,tomate,Tomate/Tomate (4).jpeg,False
+tomate_005.jpeg,apple,0.9776076674461365,0.9991140961647034,Primera,tomate,Tomate/Tomate (5).jpeg,False
+tomate_006.jpeg,pomegranate,0.5003591179847717,0.3907879590988159,Primera,tomate,Tomate/Tomate (6).jpeg,True
+tomate_007.jpeg,apple,0.9806084036827087,0.9997719526290894,Primera,tomate,Tomate/Tomate (7).jpeg,False
+tomate_008.jpeg,apple,0.9358293414115906,0.9997053742408752,Primera,tomate,Tomate/Tomate (8).jpeg,False
+tomate_009.jpeg,apple,0.9254053831100464,0.9988199472427368,Primera,tomate,Tomate/Tomate (9).jpeg,False
+tomate_arbol_001.jpeg,orange,0.4573506712913513,0.603745698928833,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (1).jpeg,True
+tomate_arbol_002.jpeg,apple,0.741043746471405,0.919150173664093,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (2).jpeg,False
+tomate_arbol_003.jpeg,apple,0.5352632999420166,0.6844834089279175,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (3).jpeg,True
+tomate_arbol_004.jpeg,orange,0.8369945883750916,0.19665518403053284,Segunda,tomate_arbol,Tomate de arbol/Tomate de Arbol (4).jpeg,False
+tomate_arbol_005.jpeg,apple,0.9936474561691284,0.9938535094261169,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (5).jpeg,False
+tomate_arbol_006.jpeg,apple,0.7435798645019531,0.8666566610336304,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (6).jpeg,False
+tomate_arbol_007.jpeg,apple,0.9801546931266785,0.9972265362739563,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (7).jpeg,False
+tomate_arbol_008.jpeg,apple,0.9908006191253662,0.9981752038002014,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (8).jpeg,False
+tomate_arbol_009.jpeg,apple,0.9587689638137817,0.989983856678009,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (9).jpeg,False
+tomate_arbol_010.jpeg,apple,0.9892165064811707,0.9976543188095093,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (10).jpeg,False
+tomate_arbol_011.jpeg,apple,0.9520993828773499,0.9792162179946899,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (11).jpeg,False
+tomate_arbol_012.jpeg,apple,0.9867600202560425,0.9965437054634094,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (12).jpeg,False
+tomate_arbol_013.jpeg,apple,0.9958043098449707,0.9995803236961365,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (13).jpeg,False
+tomate_arbol_014.jpeg,apple,0.9806156158447266,0.9934923648834229,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (14).jpeg,False
+tomate_arbol_015.jpeg,apple,0.9800074696540833,0.9964093565940857,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (15).jpeg,False
+tomate_arbol_016.jpeg,apple,0.9975542426109314,0.9997171759605408,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (16).jpeg,False
+tomate_arbol_017.jpeg,apple,0.9698841571807861,0.9912468791007996,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (17).jpeg,False
+tomate_arbol_018.jpeg,apple,0.9925010204315186,0.9993125200271606,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (18).jpeg,False
+tomate_arbol_019.jpeg,apple,0.939629316329956,0.9751976132392883,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (19).jpeg,False
+tomate_arbol_020.jpeg,apple,0.9912533164024353,0.9979791045188904,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (20).jpeg,False
+tomate_arbol_021.jpeg,apple,0.9959920048713684,0.9995363354682922,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (21).jpeg,False
+tomate_arbol_022.jpeg,apple,0.996412992477417,0.9994069933891296,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (22).jpeg,False
+tomate_arbol_023.jpeg,apple,0.8814456462860107,0.966477632522583,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (23).jpeg,False
+tomate_arbol_024.jpeg,apple,0.9526686072349548,0.9775493144989014,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (24).jpeg,False
+tomate_arbol_025.jpeg,apple,0.9877881407737732,0.9954421520233154,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (25).jpeg,False
+tomate_arbol_026.jpeg,apple,0.9583563208580017,0.9945142865180969,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (26).jpeg,False
+tomate_arbol_027.jpeg,apple,0.989234209060669,0.9990217685699463,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (27).jpeg,False
+tomate_arbol_028.jpeg,apple,0.9749470949172974,0.995782732963562,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (28).jpeg,False
+tomate_arbol_029.jpeg,apple,0.9947559833526611,0.9997875094413757,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (29).jpeg,False
+tomate_arbol_030.jpeg,apple,0.9910218715667725,0.9995167255401611,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (30).jpeg,False
+tomate_arbol_031.jpeg,apple,0.9926468729972839,0.9996094703674316,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (31).jpeg,False
+tomate_arbol_032.jpeg,apple,0.974365770816803,0.9960470795631409,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (32).jpeg,False
+tomate_arbol_033.jpeg,apple,0.8979653716087341,0.9820687770843506,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (33).jpeg,False
+tomate_arbol_034.jpeg,apple,0.8783262372016907,0.9529834985733032,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (34).jpeg,False
+tomate_arbol_035.jpeg,apple,0.8934652805328369,0.9670616984367371,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (35).jpeg,False
+tomate_arbol_036.jpeg,apple,0.8593831062316895,0.9548165202140808,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (36).jpeg,False
+tomate_arbol_037.jpeg,apple,0.9254388809204102,0.9827885627746582,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (37).jpeg,False
+tomate_arbol_038.jpeg,apple,0.9852207899093628,0.9980951547622681,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (38).jpeg,False
+tomate_arbol_039.jpeg,apple,0.9845538139343262,0.9990065693855286,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (39).jpeg,False
+tomate_arbol_040.jpeg,apple,0.9416794776916504,0.9855221509933472,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (40).jpeg,False
+tomate_arbol_041.jpeg,apple,0.9543843865394592,0.9882252812385559,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (41).jpeg,False
+tomate_arbol_042.jpeg,apple,0.9960259199142456,0.9995009303092957,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (42).jpeg,False
+tomate_arbol_043.jpeg,apple,0.9843636155128479,0.9989610314369202,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (43).jpeg,False
+tomate_arbol_044.jpeg,apple,0.9838253855705261,0.9965883493423462,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (44).jpeg,False
+tomate_arbol_045.jpeg,apple,0.9933484792709351,0.9982140064239502,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (45).jpeg,False
+tomate_arbol_046.jpeg,apple,0.9739279747009277,0.997647762298584,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (46).jpeg,False
+tomate_arbol_047.jpeg,apple,0.9764878749847412,0.9959096908569336,Primera,tomate_arbol,Tomate de arbol/Tomate de Arbol (47).jpeg,False

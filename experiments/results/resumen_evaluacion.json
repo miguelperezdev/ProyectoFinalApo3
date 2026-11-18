@@ -1,0 +1,34 @@
+{
+  "best_classical": "xgb",
+  "mcnemar_quality_cnn_vs_xgb": {
+    "solo_A_acierta": 34,
+    "solo_B_acierta": 46,
+    "p_value": 0.21851803947870374
+  },
+  "mcnemar_joint_cnn_vs_xgb": {
+    "solo_A_acierta": 73,
+    "solo_B_acierta": 80,
+    "p_value": 0.6277709072003689
+  },
+  "gradcam": {
+    "border_ring_area_fraction": 0.4375,
+    "mean_border_energy": 0.2593119144439697,
+    "median_border_energy": 0.2850897014141083,
+    "frac_images_border_energy_gt_area": 0.051425030978934326
+  },
+  "mixed_crops_cnn": {
+    "n_crops": 3640,
+    "fruit_accuracy_vs_folder": 0.42142857142857143,
+    "grade_distribution": {
+      "Primera": 0.883,
+      "Segunda": 0.101,
+      "Descarte": 0.015
+    }
+  },
+  "own_photos_cnn": {
+    "n": 48,
+    "fruit_accuracy": 0.8333333333333334,
+    "grade_agreement": 0.375,
+    "size_agreement": 0.3333333333333333
+  }
+}

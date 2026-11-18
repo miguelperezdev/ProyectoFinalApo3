@@ -1,0 +1,39 @@
+{
+  "modelo": "cnn_own",
+  "tau": 0.5548494458198547,
+  "n_desconocidas": 122,
+  "desconocidas_rechazadas": 0.09016393442622951,
+  "desconocidas_como_manzana": 0.8278688524590164,
+  "rechazo_por_fruta": {
+    "fresa": 0.096,
+    "lulo": 0.143,
+    "tomate": 0.222,
+    "tomate_arbol": 0.043
+  },
+  "confundida_con": {
+    "fresa": {
+      "apple": 48,
+      "lime": 3,
+      "pomegranate": 1
+    },
+    "lulo": {
+      "orange": 10,
+      "pomegranate": 2,
+      "apple": 2
+    },
+    "tomate": {
+      "apple": 6,
+      "pomegranate": 3
+    },
+    "tomate_arbol": {
+      "apple": 45,
+      "orange": 2
+    }
+  },
+  "manzanas_propias_rechazadas": 0.0,
+  "confianza_media": {
+    "validacion": 0.9123455286026001,
+    "manzanas_propias": 0.9468979574739933,
+    "desconocidas": 0.8791071550279367
+  }
+}
