@@ -12,7 +12,7 @@ La interfaz, hecha en Streamlit, permite:
 
 - **cargar una foto** (JPG o PNG) o **capturarla con la cámara** del computador o del celular;
 - elegir el modelo (la CNN por defecto, o los modelos clásicos si se reentrenaron);
-- ver la **fruta reconocida** con su confianza, el **grado de calidad** (🟢 Primera, 🟡 Segunda, 🔴 Descarte) con P(buena), el **tamaño** (pequeño, mediano o grande) con el diámetro normalizado y el contorno de segmentación, y el tiempo de inferencia;
+- ver la **fruta reconocida** con su confianza, el **grado de calidad** (Primera, Segunda, Descarte) con P(buena), el **tamaño** (pequeño, mediano o grande) con el diámetro normalizado y el contorno de segmentación, y el tiempo de inferencia;
 - recibir **advertencias** cuando la confianza en la fruta es baja (< 50 %) o cuando la segmentación no es confiable (fondo no uniforme).
 
 ### Tiempo real y simulación de la línea de empaque

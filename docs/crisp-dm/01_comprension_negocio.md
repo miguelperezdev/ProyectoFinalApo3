@@ -21,9 +21,9 @@ En Colombia se pierden o desperdician cerca de **9,76 millones de toneladas de a
 
    | Grado | Significado comercial | Análogo en las normas Codex |
    |---|---|---|
-   | 🟢 **Primera** | Fruta sana, venta en fresco a precio pleno | Categoría "Extra" / I |
-   | 🟡 **Segunda** | Dudosa o con defectos leves: revisión manual, venta a menor precio o procesamiento | Categoría II |
-   | 🔴 **Descarte** | Podredumbre, moho o daño severo: no apta para la venta | Fuera de norma |
+   | **Primera** | Fruta sana, venta en fresco a precio pleno | Categoría "Extra" / I |
+   | **Segunda** | Dudosa o con defectos leves: revisión manual, venta a menor precio o procesamiento | Categoría II |
+   | **Descarte** | Podredumbre, moho o daño severo: no apta para la venta | Fuera de norma |
 
    Las normas del Codex Alimentarius para frutas frescas (por ejemplo, CXS 299-2010 para manzanas y CXS 245-2004 para naranjas) también definen tres categorías comerciales, lo que respalda el uso de tres grados;
 3. un **tamaño relativo** (pequeño, mediano o grande) a partir del diámetro normalizado.
