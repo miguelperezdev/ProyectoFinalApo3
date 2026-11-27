@@ -1,6 +1,6 @@
 """Ecuaciones del informe en formato nativo de Word (OMML).
 
-``informe.md`` escribe las fórmulas en LaTeX (``$...$`` en línea y bloques ``$$ ... \\tag{n} $$``),
+``informe.md`` escribe las fórmulas en LaTeX (``$...$`` en línea y bloques ``$$ ... \\qquad (n) $$``),
 que se ven bien en GitHub y en la vista previa de Markdown. Word no entiende LaTeX, así que
 ``build_informe.py`` reemplaza cada fórmula por su versión OMML definida aquí.
 

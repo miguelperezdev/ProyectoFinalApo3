@@ -19,13 +19,13 @@ El problema es complejo: cada imagen tiene decenas de miles de variables frente 
 Sea x̃ la imagen preprocesada. Cada modelo estima la distribución conjunta sobre las K = 12 clases y = (f, q), con f una de seis frutas y q ∈ {buena, mala}, y se entrena minimizando la entropía cruzada ponderada con regularización:
 
 $$
-L(\theta) = -\frac{1}{N} \sum_{i=1}^{N} w_{y_i} \log P_\theta(y_i \mid \tilde{x}_i) + \lambda \lVert \theta \rVert_2^2 \tag{1}
+L(\theta) = -\frac{1}{N} \sum_{i=1}^{N} w_{y_i} \log P_\theta(y_i \mid \tilde{x}_i) + \lambda \lVert \theta \rVert_2^2 \qquad (1)
 $$
 
 donde $w_k = N/(K N_k)$ compensa el desbalance de clases. La probabilidad de calidad y la fruta se obtienen por marginalización:
 
 $$
-\begin{aligned} p(\tilde{x}) &= \sum_{f} P(f, \text{buena} \mid \tilde{x}) \\ \hat{f} &= \arg\max_{f} \sum_{q} P(f, q \mid \tilde{x}) \end{aligned} \tag{2}
+\begin{aligned} p(\tilde{x}) &= \sum_{f} P(f, \text{buena} \mid \tilde{x}) \\ \hat{f} &= \arg\max_{f} \sum_{q} P(f, q \mid \tilde{x}) \end{aligned} \qquad (2)
 $$
 
 Un modelo conjunto aprovecha que lo que significa «mala» depende de la fruta.
@@ -35,7 +35,7 @@ Un modelo conjunto aprovecha que lo que significa «mala» depende de la fruta.
 Como el conjunto de datos solo tiene dos etiquetas de calidad, el tercer grado se deriva con la regla de rechazo de Chow [4]: Primera si $p \ge \tau_{\text{alto}}$, Descarte si $p \le \tau_{\text{bajo}}$ y Segunda en otro caso. Los umbrales se eligen en validación:
 
 $$
-\begin{aligned} \tau_{\text{alto}} &= \min \{ \tau : P(\text{buena} \mid p \ge \tau) \ge \pi \} \\ \tau_{\text{bajo}} &= \max \{ \tau : P(\text{mala} \mid p \le \tau) \ge \pi \} \end{aligned} \tag{3}
+\begin{aligned} \tau_{\text{alto}} &= \min \{ \tau : P(\text{buena} \mid p \ge \tau) \ge \pi \} \\ \tau_{\text{bajo}} &= \max \{ \tau : P(\text{mala} \mid p \le \tau) \ge \pi \} \end{aligned} \qquad (3)
 $$
 
 La Segunda recoge los casos dudosos, que se revisan a mano o se venden a menor precio. Subir π aumenta la confiabilidad a costa de la *cobertura*, la fracción de frutas con veredicto firme. Se usó π = 98 % en validación, tres puntos por encima del criterio de éxito, porque la precisión medida justo en el umbral baja al pasar a datos nuevos.
@@ -63,7 +63,7 @@ Se conservó una imagen por captura (12.185 únicas) y se agruparon las ráfagas
 La fruta se segmenta por distancia de color al fondo (mediana del borde en CIELab), umbral de Otsu y morfología. Con el área A de la máscara se calcula el diámetro equivalente normalizado
 
 $$
-d_{\text{norm}} = \frac{2\sqrt{A/\pi}}{\min(H, W)} \in (0, 1] \tag{4}
+d_{\text{norm}} = \frac{2\sqrt{A/\pi}}{\min(H, W)} \in (0, 1] \qquad (4)
 $$
 
 que se discretiza en pequeño, mediano o grande con umbrales por fruta. Es una medida **relativa**: depende de la distancia de la cámara, que el protocolo de captura fija en unos 30 cm.

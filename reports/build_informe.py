@@ -1,4 +1,4 @@
-"""Genera el informe IEEE (.docx y .pdf) a partir de ``reports/informe.md``.
+r"""Genera el informe IEEE (.docx y .pdf) a partir de ``reports/informe.md``.
 
 El Markdown es la fuente única del informe; este script lo vuelca en la
 plantilla oficial del curso (``docs/enunciado/plantilla_informe_IEEE.docx``)
@@ -16,7 +16,7 @@ Subconjunto de Markdown admitido:
     - viñeta                       → bullet list
     ![pie de figura](figures/x.png){ancho=3.3}
     Tabla: título  + tabla con barras verticales
-    $$ ecuación en LaTeX \tag{n} $$ → equation (puede ocupar varias líneas)
+    $$ ecuación en LaTeX \qquad (n) $$ → equation (puede ocupar varias líneas)
 
 Las fórmulas se convierten en ecuaciones nativas de Word con las versiones OMML de
 ``reports/ecuaciones.py``; si se cambia una fórmula del .md hay que actualizarla allí.
@@ -333,14 +333,15 @@ def build() -> Path:
             b.table(ln[len("Tabla: "):], parse_table(lines[j:k]))
             i = k
             continue
-        elif ln.startswith("$$"):  # bloque $$ ... \tag{n} $$, en una o varias líneas
+        elif ln.startswith("$$"):  # bloque $$ ... \qquad (n) $$, en una o varias líneas
             text, j = ln[2:], i
             while "$$" not in text:
                 j += 1
                 text += " " + lines[j].strip()
             latex = text[:text.index("$$")]
-            tag = re.search(r"\\tag\{(\d+)\}", latex)
-            b.equation(re.sub(r"\\tag\{\d+\}", "", latex).strip(), int(tag.group(1)))
+            # el número va al final como «\qquad (n)»: GitHub dibuja mal las ecuaciones con \tag{n}
+            num = re.search(r"\\qquad\s*\((\d+)\)\s*$", latex.strip())
+            b.equation(latex.strip()[:num.start()].strip(), int(num.group(1)))
             i = j
         elif in_refs and re.match(r"\[\d+\]", ln):
             b.reference(re.sub(r"^\[\d+\]\s*", "", ln))
