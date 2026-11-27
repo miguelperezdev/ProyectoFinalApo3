@@ -2,7 +2,11 @@
 
 Proyecto final del curso **Algoritmos y Programación III** (semestre 2026-2), Ingeniería de Sistemas, Facultad de Ingeniería, Diseño y Ciencias Aplicadas, **Universidad Icesi**, Cali, Colombia.
 
-**Estado del proyecto:** código, modelos, aplicación, informe y fotos propias terminados. Falta el video y la anotación opcional de recortes de *Mixed*.
+**Estado del proyecto:** terminado.
+
+- **Informe (IEEE):** [`reports/informe_final.pdf`](reports/informe_final.pdf)
+- **Video de presentación:** https://canva.link/gkvnycpm3mnc2wd
+- **Repositorio:** https://github.com/miguelperezdev/ProyectoFinalApo3
 
 ## Integrantes
 
@@ -80,8 +84,7 @@ Cada fase se documenta en [`docs/crisp-dm/`](docs/crisp-dm/):
 │   └── processed/      # Datos listos para entrenar
 ├── docs/
 │   ├── enunciado/      # Enunciado, competencias, rúbrica y plantilla IEEE
-│   ├── crisp-dm/       # Documentación por fase de CRISP-DM
-│   └── guion_video.md  # Guion del video de presentación
+│   └── crisp-dm/       # Documentación por fase de CRISP-DM
 ├── notebooks/          # Exploración y experimentos (numerados por fase)
 ├── src/
 │   ├── main.py         # Ejecuta todas las etapas del proyecto en orden
@@ -187,7 +190,7 @@ python -m src.main ajuste          # ajuste fino de la CNN con Kaggle + fotos pr
 - [x] Interfaz gráfica funcionando (`src/app/`)
 - [x] Informe final en formato IEEE, máximo 7 páginas (`reports/informe_final.pdf`)
 - [x] Fotos propias del grupo, 30 a 50 (`data/own/`)
-- [ ] Video de presentación de máximo 10 minutos (_[enlace]_)
+- [x] Video de presentación de máximo 10 minutos ([enlace](https://canva.link/gkvnycpm3mnc2wd))
 
 ## Referencias
 
