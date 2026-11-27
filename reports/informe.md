@@ -10,7 +10,7 @@ En las plazas de mercado, centros de acopio y empacadoras, las frutas se clasifi
 
 El objetivo es un sistema que, a partir de la foto de **una** fruta sobre un fondo simple, entregue (i) la fruta, (ii) un grado de calidad de tres categorías y (iii) un tamaño relativo, con un celular o una webcam y un computador sin GPU. Los tres grados se inspiran en las normas del Codex Alimentarius, que también definen tres categorías comerciales [3]. Los criterios de éxito se fijaron antes de modelar: F1-macro ≥ 0,85 en las 12 clases fruta × calidad, precisión ≥ 95 % en Primera y en Descarte, menos de 50 ms por imagen en CPU y reporte de la brecha con datos externos.
 
-El problema es complejo: cada imagen tiene decenas de miles de variables frente a unas 8.000 imágenes de entrenamiento; una mancha pequeña separa una fruta buena de una mala, mientras dos frutas buenas pueden verse muy distintas; el conjunto de datos contiene copias y ráfagas casi idénticas que rompen el supuesto de independencia; los errores tienen costos asimétricos (vender una fruta podrida no cuesta lo mismo que botar una sana); y, como se mostrará, el fondo de la foto está correlacionado con la etiqueta. Las contribuciones son un protocolo de partición sin fuga, una comparación estadística entre cuatro modelos clásicos y una CNN, una regla de grados con garantía de precisión, la cuantificación del sesgo de fondo y una aplicación desplegable.
+El problema es complejo: cada imagen tiene decenas de miles de variables frente a unas 8.000 imágenes de entrenamiento; una mancha pequeña separa una fruta buena de una mala, mientras dos frutas buenas pueden verse muy distintas; el conjunto de datos contiene copias y ráfagas casi idénticas que rompen el supuesto de independencia; los errores tienen costos asimétricos (vender una fruta podrida no cuesta lo mismo que botar una sana); y, como se mostrará, el fondo de la foto está correlacionado con la etiqueta. Las contribuciones son un protocolo de partición sin fuga, una comparación estadística entre cuatro modelos clásicos y una CNN, una regla de grados con garantía de precisión, la cuantificación del sesgo de fondo y una aplicación desplegable. El código documentado, los notebooks, las fotos propias y los resultados están en el repositorio del proyecto [22], y el video de presentación en [23].
 
 ## Fundamentos teóricos
 
@@ -42,11 +42,11 @@ La **regresión logística** multinomial es la línea base lineal. La **SVM con 
 
 El proyecto siguió las seis fases de CRISP-DM [8], con varias iteraciones entre ellas (Fig. 1).
 
-![Flujo CRISP-DM aplicado al proyecto. Las flechas punteadas son iteraciones reales: por ejemplo, descubrir las copias aumentadas obligó a volver a la preparación de los datos.](figures/diagrama_crisp_dm.png){ancho=6.4}
-
 ### Datos
 
 Se usó *Fruit Quality Classification* (Kaggle, CC0) [9], derivado de FruitNet [10]: 19.526 imágenes de manzana, banano, guayaba, limón, naranja y granada, en calidad buena o mala, más una carpeta *Mixed* con varias frutas por foto. El análisis exploratorio reveló tres problemas que el artículo original no documenta. Primero, el 39 % de los archivos son **copias aumentadas** de la misma captura (el 81 % en granada buena). Segundo, las fotos se tomaron en **ráfagas**: segundos de diferencia, mismo fondo y misma luz. Tercero, las frutas buenas y malas se fotografiaron en buena parte sobre fondos distintos.
+
+![Flujo CRISP-DM aplicado al proyecto. Las flechas punteadas son iteraciones reales: por ejemplo, descubrir las copias aumentadas obligó a volver a la preparación de los datos.](figures/diagrama_crisp_dm.png){ancho=6.4}
 
 ### Preparación
 
@@ -108,7 +108,7 @@ Con Grad-CAM [17] se midió qué fracción de la activación cae en el anillo de
 
 Con las **48 fotos propias** de manzana (casa, otros fondos y luz) la CNN acierta la fruta en el 83 %, pero el grado solo coincide en el 38 % y el tamaño en el 33 %. La probabilidad media de «buena» cae a 0,28 y el 54 % de las manzanas sanas se envía a Segunda: el modelo reconoce la fruta, pero su calibración no se traslada. El tamaño falla porque los umbrales absolutos del dataset no corresponden a la distancia de captura; recalibrarlos con estas fotos da (0,60, 0,65) para manzana. El set no incluye Descarte, de modo que esa clase no se evalúa.
 
-**Ajuste fino y fruta desconocida.** Se reentrenó la CNN 4 épocas desde sus pesos con Kaggle más las manzanas propias, con validación cruzada de 4 pliegues sobre ellas. En fotos no vistas, la fruta sube al 100 % y el grado al 92 %, mientras el F1 de prueba apenas cambia (0,908). Para comprobar si era una mejora real se usaron 122 fotos propias de frutas fuera del catálogo (fresa, lulo, tomate y tomate de árbol). Un umbral de confianza fijado en validación (τ = 0,55) rechaza solo el 21 % de ellas con la CNN original, y el mismo 21 % de las manzanas propias. Tras el ajuste, el 83 % de esas frutas pasa por manzana y el rechazo cae al 9 % (Fig. 6): la red aprendió en parte el contexto de la casa. Por eso se mantiene la CNN original.
+**Ajuste fino y fruta desconocida.** Se reentrenó la CNN 4 épocas desde sus pesos con Kaggle más las manzanas propias, con validación cruzada de 4 pliegues sobre ellas. En fotos no vistas, la fruta sube al 100 % y el grado al 92 %, mientras el F1 de prueba apenas cambia (0,908). Para comprobar si era una mejora real se usaron 122 fotos propias de frutas fuera del catálogo (fresa, lulo, tomate y tomate de árbol). Un umbral de confianza fijado en validación (τ = 0,55) rechaza solo el 21 % de ellas con la CNN original, y el mismo 21 % de las manzanas propias. Tras el ajuste, el 83 % de esas frutas pasa por manzana y el rechazo cae al 9 % (Fig. 5): la red aprendió en parte el contexto de la casa. Por eso se mantiene la CNN original.
 
 ## Análisis de resultados
 
@@ -118,11 +118,11 @@ Con las **48 fotos propias** de manzana (casa, otros fondos y luz) la CNN aciert
 
 **Sobreajuste.** Los modelos clásicos memorizan el entrenamiento (F1 = 1,0) y pierden 9–14 puntos en prueba. La CNN pierde solo 3,7: el aumento de datos, el *dropout*, el *global average pooling* y su tamaño reducido actúan como regularizadores, y su curva de validación sigue a la de entrenamiento durante las 35 épocas. Su mejor época fue la 34: aún no había convergido. En todos los modelos el F1 de prueba supera al de validación en 2–3 puntos; no es fuga (se verificó), sino que con particiones agrupadas cada conjunto recibe sesiones completas y el de prueba resultó algo más fácil. Por eso la selección se hizo con validación.
 
-**¿Qué falla? El sesgo de fondo.** El control de la Tabla I es el hallazgo central: **mirando solo el borde**, un Random Forest acierta la calidad en el 90,4 % de las imágenes de prueba. La imagen completa aporta 5–6 puntos sobre ese piso. Grad-CAM muestra que la CNN se apoya sobre todo en la fruta (pone en el borde un 40 % menos de atención que al azar), pero sus errores más confiados son frutas buenas sostenidas en la mano o con guantes, que clasifica como malas (Fig. 5): el contexto de la sesión sigue influyendo. La consecuencia aparece en *Mixed*: con sesiones nuevas, todos los modelos pierden entre 34 y 49 puntos de exactitud de fruta, con confusiones sistemáticas (limones maduros → naranja, granadas → manzana). La CNN generaliza mejor que los modelos clásicos (59 % frente a 43–48 %), porque las características de color diseñadas a mano son más sensibles al fondo y a la luz que los filtros aprendidos con aumento de datos.
-
-![Errores de calidad más confiados de la CNN en prueba (B: buena, M: mala). Varias frutas buenas sostenidas en la mano o con guantes reciben P(buena) < 0,15.](figures/res_errores_cnn.png){ancho=3.4}
+**¿Qué falla? El sesgo de fondo.** El control de la Tabla I es el hallazgo central: **mirando solo el borde**, un Random Forest acierta la calidad en el 90,4 % de las imágenes de prueba. La imagen completa aporta 5–6 puntos sobre ese piso. Grad-CAM muestra que la CNN se apoya sobre todo en la fruta (pone en el borde un 40 % menos de atención que al azar), pero sus errores más confiados son frutas buenas sostenidas en la mano o con guantes, que clasifica como malas (Fig. 6): el contexto de la sesión sigue influyendo. La consecuencia aparece en *Mixed*: con sesiones nuevas, todos los modelos pierden entre 34 y 49 puntos de exactitud de fruta, con confusiones sistemáticas (limones maduros → naranja, granadas → manzana). La CNN generaliza mejor que los modelos clásicos (59 % frente a 43–48 %), porque las características de color diseñadas a mano son más sensibles al fondo y a la luz que los filtros aprendidos con aumento de datos.
 
 ![Confianza de la fruta en validación, manzanas propias y frutas desconocidas, antes (izquierda) y después (derecha) del ajuste fino; la línea punteada es el umbral de rechazo.](figures/res_otras_frutas.png){ancho=3.4}
+
+![Errores de calidad más confiados de la CNN en prueba (B: buena, M: mala). Varias frutas buenas sostenidas en la mano o con guantes reciben P(buena) < 0,15.](figures/res_errores_cnn.png){ancho=3.4}
 
 **Comparación con la literatura.** El artículo de FruitNet [10] no reporta modelos. Morshed et al. [18] obtienen 99,67 % de exactitud con DenseNet201 preentrenada sobre las 19.526 imágenes, y su resumen no describe cómo se separaron las copias. Nuestras cifras son menores, pero el protocolo es más estricto: con 39 % de copias y fotos en ráfaga, una partición aleatoria pone casi la misma imagen en entrenamiento y en prueba. La caída en *Mixed* indica que incluso nuestras cifras sobrestiman el desempeño en condiciones reales, y que las exactitudes cercanas al 100 % en este conjunto deben leerse con cautela.
 
@@ -136,7 +136,7 @@ Tabla: Dilemas éticos y medidas adoptadas
 
 | Situación | Principio | Medida |
 |---|---|---|
-| Fotos propias en mercados: rostros, puestos, ubicación | Privacidad (ACM 1.6; Ley 1581 de 2012) | Sin personas ni nombres de negocios; permiso del vendedor; se borran GPS y fecha (EXIF) |
+| Fotos propias: rostros, hogares, ubicación | Privacidad (ACM 1.6; Ley 1581 de 2012) | Sin personas; fotos con varias frutas, marcas o manos se excluyen; se borran GPS y fecha (EXIF) |
 | Sesgo de fondo; frutas de otro país | Justicia y evaluación de riesgos (ACM 1.4, 2.5) | Sesgo medido y reportado; Grad-CAM; evaluación externa |
 | Métricas infladas por copias | Honestidad (ACM 1.3; IEEE I.5) | Deduplicación, partición agrupada, prueba usada una vez |
 | Fruta podrida vendida como Primera | Seguridad del consumidor (ACM 1.2; IEEE I.1) | Umbral con precisión ≥ 95 %; dudosas a Segunda |
@@ -183,3 +183,5 @@ Las fotos propias muestran que reentrenar con datos locales funciona (el grado e
 [19] Association for Computing Machinery, “ACM code of ethics and professional conduct,” 2018. [Online]. Available: https://www.acm.org/code-of-ethics
 [20] IEEE, “IEEE code of ethics,” 2020. [Online]. Available: https://www.ieee.org/about/corporate/governance/p7-8.html
 [21] Congreso de Colombia, “Ley 842 de 2003, por la cual se modifica la reglamentación del ejercicio de la ingeniería,” *Diario Oficial*, no. 45.340, 2003.
+[22] M. Pérez, D. Zambrano, M. Berrío, and S. Romero, “ProyectoFinalApo3: clasificación automática de la calidad de frutas,” GitHub, 2026. [Online]. Available: https://github.com/miguelperezdev/ProyectoFinalApo3
+[23] M. Pérez, D. Zambrano, M. Berrío, and S. Romero, “Clasificación automática de la calidad de frutas: video de presentación,” 2026. [Online]. Available: https://canva.link/gkvnycpm3mnc2wd

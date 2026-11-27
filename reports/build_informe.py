@@ -99,7 +99,22 @@ class Builder:
         return p
 
     def heading(self, text: str, level: int):
-        add_runs(self._new_par(f"Heading {level}"), text)
+        p = self._new_par(f"Heading {level}")
+        if level in (1, 2):
+            # Numeración manual («III.», «A.»): con la automática, LibreOffice dibuja el número
+            # encima de una figura ancha cuando el título queda justo debajo de ella.
+            num_pr = p._p.get_or_add_pPr().get_or_add_numPr()
+            num_pr.get_or_add_ilvl().val = 0
+            num_pr.get_or_add_numId().val = 0
+            if level == 1:
+                self.n_sec = getattr(self, "n_sec", 0) + 1
+                self.n_sub = 0
+                roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"][self.n_sec - 1]
+                p.add_run(f"{roman}. ")
+            else:
+                self.n_sub = getattr(self, "n_sub", 0) + 1
+                p.add_run(f"{chr(64 + self.n_sub)}. ")
+        add_runs(p, text)
 
     def body(self, text: str):
         add_runs(self._new_par("Body Text"), text)
