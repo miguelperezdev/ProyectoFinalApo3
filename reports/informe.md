@@ -18,25 +18,31 @@ El problema es complejo: cada imagen tiene decenas de miles de variables frente 
 
 Sea x̃ la imagen preprocesada. Cada modelo estima la distribución conjunta sobre las K = 12 clases y = (f, q), con f una de seis frutas y q ∈ {buena, mala}, y se entrena minimizando la entropía cruzada ponderada con regularización:
 
-$$ L(θ) = −(1/N) Σᵢ w_{yᵢ} log P_θ(yᵢ | x̃ᵢ) + λ‖θ‖² $$ (1)
+$$
+L(\theta) = -\frac{1}{N} \sum_{i=1}^{N} w_{y_i} \log P_\theta(y_i \mid \tilde{x}_i) + \lambda \lVert \theta \rVert_2^2 \tag{1}
+$$
 
-donde w_k = N / (K·N_k) compensa el desbalance de clases. La probabilidad de calidad y la fruta se obtienen por marginalización:
+donde $w_k = N/(K N_k)$ compensa el desbalance de clases. La probabilidad de calidad y la fruta se obtienen por marginalización:
 
-$$ p(x̃) = Σ_f P(f, buena | x̃),   f̂ = argmax_f Σ_q P(f, q | x̃) $$ (2)
+$$
+\begin{aligned} p(\tilde{x}) &= \sum_{f} P(f, \text{buena} \mid \tilde{x}) \\ \hat{f} &= \arg\max_{f} \sum_{q} P(f, q \mid \tilde{x}) \end{aligned} \tag{2}
+$$
 
 Un modelo conjunto aprovecha que lo que significa «mala» depende de la fruta.
 
 ### Grados con opción de rechazo
 
-Como el conjunto de datos solo tiene dos etiquetas de calidad, el tercer grado se deriva con la regla de rechazo de Chow [4]: Primera si p ≥ τ_alto, Descarte si p ≤ τ_bajo y Segunda en otro caso. Los umbrales se eligen en validación:
+Como el conjunto de datos solo tiene dos etiquetas de calidad, el tercer grado se deriva con la regla de rechazo de Chow [4]: Primera si $p \ge \tau_{\text{alto}}$, Descarte si $p \le \tau_{\text{bajo}}$ y Segunda en otro caso. Los umbrales se eligen en validación:
 
-$$ τ_alto = min{τ : P(buena | p ≥ τ) ≥ π},  τ_bajo = max{τ : P(mala | p ≤ τ) ≥ π} $$ (3)
+$$
+\begin{aligned} \tau_{\text{alto}} &= \min \{ \tau : P(\text{buena} \mid p \ge \tau) \ge \pi \} \\ \tau_{\text{bajo}} &= \max \{ \tau : P(\text{mala} \mid p \le \tau) \ge \pi \} \end{aligned} \tag{3}
+$$
 
 La Segunda recoge los casos dudosos, que se revisan a mano o se venden a menor precio. Subir π aumenta la confiabilidad a costa de la *cobertura*, la fracción de frutas con veredicto firme. Se usó π = 98 % en validación, tres puntos por encima del criterio de éxito, porque la precisión medida justo en el umbral baja al pasar a datos nuevos.
 
 ### Modelos
 
-La **regresión logística** multinomial es la línea base lineal. La **SVM con kernel RBF** [5] busca la frontera de margen máximo en el espacio inducido por K(x, x′) = exp(−γ‖x − x′‖²). **Random Forest** [6] promedia árboles entrenados con muestras *bootstrap* y subconjuntos aleatorios de características, lo que reduce la varianza. **XGBoost** [7] construye un modelo aditivo en el que cada árbol corrige el gradiente de la pérdida de los anteriores, con penalización sobre el número y el peso de las hojas. Una **red convolucional** (CNN) aprende de los píxeles filtros que comparten pesos sobre toda la imagen, de modo que un defecto se detecta igual en cualquier posición.
+La **regresión logística** multinomial es la línea base lineal. La **SVM con kernel RBF** [5] busca la frontera de margen máximo en el espacio inducido por $K(x, x') = \exp(-\gamma \lVert x - x' \rVert^2)$. **Random Forest** [6] promedia árboles entrenados con muestras *bootstrap* y subconjuntos aleatorios de características, lo que reduce la varianza. **XGBoost** [7] construye un modelo aditivo en el que cada árbol corrige el gradiente de la pérdida de los anteriores, con penalización sobre el número y el peso de las hojas. Una **red convolucional** (CNN) aprende de los píxeles filtros que comparten pesos sobre toda la imagen, de modo que un defecto se detecta igual en cualquier posición.
 
 ## Metodología
 
@@ -56,7 +62,9 @@ Se conservó una imagen por captura (12.185 únicas) y se agruparon las ráfagas
 
 La fruta se segmenta por distancia de color al fondo (mediana del borde en CIELab), umbral de Otsu y morfología. Con el área A de la máscara se calcula el diámetro equivalente normalizado
 
-$$ d = 2√(A/π) / min(H, W) ∈ (0, 1] $$ (4)
+$$
+d_{\text{norm}} = \frac{2\sqrt{A/\pi}}{\min(H, W)} \in (0, 1] \tag{4}
+$$
 
 que se discretiza en pequeño, mediano o grande con umbrales por fruta. Es una medida **relativa**: depende de la distancia de la cámara, que el protocolo de captura fija en unos 30 cm.
 

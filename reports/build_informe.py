@@ -12,11 +12,14 @@ Subconjunto de Markdown admitido:
     Resumen— texto                 → Abstract
     Palabras clave— texto          → Keywords
     ## Sección / ### Subsección    → Heading 1 / Heading 2 (numeración de la plantilla)
-    párrafo con **negrita**, *cursiva* y `código`
+    párrafo con **negrita**, *cursiva*, `código` y $fórmula$ (LaTeX)
     - viñeta                       → bullet list
     ![pie de figura](figures/x.png){ancho=3.3}
     Tabla: título  + tabla con barras verticales
-    $$ ecuación $$ (n)             → equation
+    $$ ecuación en LaTeX \tag{n} $$ → equation (puede ocupar varias líneas)
+
+Las fórmulas se convierten en ecuaciones nativas de Word con las versiones OMML de
+``reports/ecuaciones.py``; si se cambia una fórmula del .md hay que actualizarla allí.
     [n] referencia (tras «## Referencias»)
 
 Requiere LibreOffice (``soffice``) para normalizar la plantilla y exportar el PDF.
@@ -46,6 +49,9 @@ from docx.oxml.ns import qn
 from docx.shared import Inches, Pt
 from docx.text.paragraph import Paragraph
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from ecuaciones import display_omml, inline_omml  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "docs" / "enunciado" / "plantilla_informe_IEEE.docx"
 SOURCE = ROOT / "reports" / "informe.md"
@@ -62,7 +68,7 @@ AUTHORS_PER_ROW = 3
 AFFILIATION = ("Facultad de Ingeniería, Diseño y Ciencias Aplicadas", "Universidad Icesi", "Cali, Colombia")
 
 COLUMN_WIDTH = 3.45  # pulgadas: ancho de una columna del cuerpo a dos columnas
-INLINE = re.compile(r"(\*\*.+?\*\*|\*.+?\*|`.+?`)")
+INLINE = re.compile(r"(\$[^$]+\$|\*\*.+?\*\*|\*.+?\*|`.+?`)")
 
 
 def normalized_template(tmp: Path) -> Path:
@@ -75,6 +81,9 @@ def normalized_template(tmp: Path) -> Path:
 def add_runs(par, text: str, base_italic: bool = False) -> None:
     for tok in INLINE.split(text):
         if not tok:
+            continue
+        if tok.startswith("$"):  # fórmula en línea → ecuación de Word
+            par._p.append(parse_xml(inline_omml(tok[1:-1])))
             continue
         if tok.startswith("**"):
             r = par.add_run(tok[2:-2]); r.bold = True
@@ -122,14 +131,10 @@ class Builder:
     def bullet(self, text: str):
         add_runs(self._new_par("bullet list"), text)
 
-    def equation(self, expr: str, number: str):
+    def equation(self, latex: str, number: int):
+        """Ecuación de Word centrada, con su número (n) alineado a la derecha."""
         p = self._new_par("equation")
-        p.add_run("\t")
-        add_runs(p, expr)
-        p.add_run(f"\t({number})")
-        for r in p.runs:  # el estilo de la plantilla usa la fuente Symbol (griego); se fuerza Times
-            r.font.name = "Times New Roman"
-            r._r.get_or_add_rPr().get_or_add_rFonts().set(qn("w:hAnsi"), "Times New Roman")
+        p._p.append(parse_xml(display_omml(latex, number)))
 
     def reference(self, text: str):
         add_runs(self._new_par("references"), text)
@@ -328,9 +333,15 @@ def build() -> Path:
             b.table(ln[len("Tabla: "):], parse_table(lines[j:k]))
             i = k
             continue
-        elif ln.startswith("$$"):
-            m = re.match(r"\$\$(.+)\$\$\s*\((\d+)\)", ln)
-            b.equation(m.group(1).strip(), m.group(2))
+        elif ln.startswith("$$"):  # bloque $$ ... \tag{n} $$, en una o varias líneas
+            text, j = ln[2:], i
+            while "$$" not in text:
+                j += 1
+                text += " " + lines[j].strip()
+            latex = text[:text.index("$$")]
+            tag = re.search(r"\\tag\{(\d+)\}", latex)
+            b.equation(re.sub(r"\\tag\{\d+\}", "", latex).strip(), int(tag.group(1)))
+            i = j
         elif in_refs and re.match(r"\[\d+\]", ln):
             b.reference(re.sub(r"^\[\d+\]\s*", "", ln))
         elif ln.startswith("- "):
