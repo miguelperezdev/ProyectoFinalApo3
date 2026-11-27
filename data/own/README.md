@@ -39,9 +39,9 @@ banano_003.jpg,banana,Descarte,grande,mercado,danna
 
 ### Set actual de manzanas
 
-El set final tiene **48 fotos de manzana** en `data/own/images/` (`manzana_001.jpeg` … `manzana_059.jpeg`, con huecos) tomadas en casa y anotadas en `labels.csv`: 46 Primera y 2 Segunda (no hay Descarte), 16 pequeñas, 16 medianas y 16 grandes. La correspondencia con los nombres originales y la variedad está en `renombrado_manzanas.csv`, que incluye las columnas `estado` (`usada` o `excluida`) y `motivo`.
+El set final tiene **48 fotos de manzana** en `data/own/images/` (`manzana_001.jpeg` … `manzana_059.jpeg`, con huecos) tomadas en casa y anotadas en `labels.csv`: 46 Primera y 2 Segunda (no hay Descarte), 16 pequeñas, 16 medianas y 16 grandes.
 
-De las 70 fotos iniciales se excluyeron 22 que no cumplían el protocolo; están en `excluidas/`: 6 con varias frutas por foto (026–031), 11 con sticker de producto (060–061 y 063–070, todas las manzanas verdes) y 5 con mano dominante (006, 007, 017, 024 y 037). No se usan en ninguna prueba.
+De las 70 fotos iniciales se descartaron 22 que no cumplían el protocolo: 6 con varias frutas por foto, 11 con sticker de producto y 5 en las que la mano ocupaba buena parte de la imagen.
 
 Resultado de la evaluación con la CNN: fruta 83 % (40/48), grado 38 % (18/48) y tamaño 33 % (16/48). El detalle está en `experiments/results/own_photos_pred_cnn.csv` y en `docs/crisp-dm/05_evaluacion.md` §5.6.
 
@@ -51,10 +51,8 @@ Resultado de la evaluación con la CNN: fruta 83 % (40/48), grado 38 % (18/48) y
 |---|---|---|---|
 | `images/` + `labels.csv` | Manzanas que cumplen el protocolo, anotadas | 48 | Evaluación (y ajuste fino, ver abajo) |
 | `otras_frutas/` + `otras_frutas.csv` | Fresa (52), lulo (14), tomate (9) y tomate de árbol (47) | 122 | Prueba de fruta desconocida |
-| `excluidas/` | Manzanas que no cumplieron el protocolo | 22 | Ninguno; se guardan como registro |
-| `renombrado_manzanas.csv` | Nombre original de cada manzana, variedad, `estado` (`usada`/`excluida`) y `motivo` | — | Trazabilidad |
 
-Todas las fotos son del equipo y están sin metadatos EXIF (`python -m src.data.strip_exif` revisa las tres carpetas). Los 40 duplicados exactos que había en la colección original se borraron tras comprobar con MD5 que eran copias idénticas; `otras_frutas.csv` guarda el nombre original de cada foto.
+Todas las fotos son del equipo y están sin metadatos EXIF (`python -m src.data.strip_exif` revisa las dos carpetas). Los 40 duplicados exactos que había en la colección original se borraron tras comprobar con MD5 que eran copias idénticas; `otras_frutas.csv` guarda el nombre original de cada foto.
 
 ## Pruebas hechas con estas fotos
 

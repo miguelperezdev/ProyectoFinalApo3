@@ -29,7 +29,6 @@ data/processed/*
 
 # --- Artefactos de entrenamiento ---
 experiments/checkpoints/*
-experiments/logs/*
 !experiments/**/.gitkeep
 *.pt
 *.pth

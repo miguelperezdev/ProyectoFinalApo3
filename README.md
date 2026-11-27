@@ -72,14 +72,14 @@ Cada fase se documenta en [`docs/crisp-dm/`](docs/crisp-dm/):
 | Fuente | Descripción | Ubicación |
 |---|---|---|
 | [Fruit Quality Classification (Kaggle)](https://www.kaggle.com/datasets/ryandpark/fruit-quality-classification) | 19.526 imágenes de 6 frutas (manzana, banano, guayaba, limón, naranja y granada) en calidades *Good*, *Bad* y *Mixed*. Licencia CC0. Proviene de FruitNet [1]. | `data/raw/` (no se versiona) |
-| Fotos propias del grupo | 48 manzanas anotadas, 122 fotos de frutas que el modelo no conoce y 22 manzanas excluidas, todas tomadas por el equipo. | [`data/own/`](data/own/) |
+| Fotos propias del grupo | 48 manzanas anotadas y 122 fotos de frutas que el modelo no conoce, todas tomadas por el equipo. | [`data/own/`](data/own/) |
 
 ## Estructura del repositorio
 
 ```
 ├── data/
 │   ├── raw/            # Dataset de Kaggle (se descarga, no se sube a git)
-│   ├── own/            # Fotos propias: images/ + labels.csv, otras_frutas/, excluidas/
+│   ├── own/            # Fotos propias: images/ + labels.csv y otras_frutas/
 │   ├── interim/        # Datos intermedios (recortes, segmentaciones)
 │   └── processed/      # Datos listos para entrenar
 ├── docs/
@@ -95,7 +95,7 @@ Cada fase se documenta en [`docs/crisp-dm/`](docs/crisp-dm/):
 │   ├── evaluation/     # Métricas, matrices de confusión, análisis de errores
 │   ├── app/            # Interfaz (Streamlit), anotación y modo en tiempo real
 │   └── utils/          # Funciones auxiliares
-├── experiments/        # Resultados, logs y modelos entrenados
+├── experiments/        # Resultados y modelos entrenados
 ├── reports/            # Informe final (IEEE) y figuras
 ├── tests/              # Pruebas unitarias
 ├── requirements.txt
@@ -168,7 +168,7 @@ El modelo CNN final (`experiments/checkpoints/cnn.pt`, ~450 KB) se incluye en el
 3. Anotar cada foto en `data/own/labels.csv`.
 4. Volver a correr `python -m src.evaluation.evaluate`.
 
-El set final tiene **48 manzanas** tomadas en casa y anotadas en `data/own/labels.csv` (46 Primera, 2 Segunda; 16 pequeñas, 16 medianas y 16 grandes). La CNN acierta la fruta en el **83 %**, pero el grado solo coincide en el **38 %** y el tamaño en el **33 %**; el detalle está en `docs/crisp-dm/05_evaluacion.md` (§5.6) y en `experiments/results/own_photos_pred_cnn.csv`. Además, el equipo tomó **122 fotos de frutas que el modelo no conoce** (fresa, lulo, tomate y tomate de árbol) en `data/own/otras_frutas/`, y las 22 manzanas que no cumplieron el protocolo quedaron en `data/own/excluidas/`.
+El set final tiene **48 manzanas** tomadas en casa y anotadas en `data/own/labels.csv` (46 Primera, 2 Segunda; 16 pequeñas, 16 medianas y 16 grandes). La CNN acierta la fruta en el **83 %**, pero el grado solo coincide en el **38 %** y el tamaño en el **33 %**; el detalle está en `docs/crisp-dm/05_evaluacion.md` (§5.6) y en `experiments/results/own_photos_pred_cnn.csv`. Además, el equipo tomó **122 fotos de frutas que el modelo no conoce** (fresa, lulo, tomate y tomate de árbol) en `data/own/otras_frutas/`.
 
 Con estas fotos se hicieron dos pruebas (detalle en `docs/crisp-dm/05_evaluacion.md` §5.6):
 

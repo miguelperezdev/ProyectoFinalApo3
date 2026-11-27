@@ -57,10 +57,10 @@ Umbrales ajustados en validación con meta π = 98 % (fase 4) y aplicados una so
 
 | Criterio (fase 1) | Meta | XGBoost | CNN | ¿Se cumple? |
 |---|---|---|---|---|
-| F1-macro (test) | ≥ 0,85 | 0,912 | 0,909 | ✅ (y para RF y SVM; la línea base queda en 0,847) |
-| Precisión de Primera | ≥ 95 % | 97,4 % | 95,8 % | ✅ |
-| Precisión de Descarte | ≥ 95 % | 97,9 % | 99,5 % | ✅ |
-| Latencia por imagen en CPU, de punta a punta | < 50 ms | 36,6 ms | **6,2 ms** | ✅ |
+| F1-macro (test) | ≥ 0,85 | 0,912 | 0,909 | Sí (también RF y SVM; la línea base queda en 0,847) |
+| Precisión de Primera | ≥ 95 % | 97,4 % | 95,8 % | Sí |
+| Precisión de Descarte | ≥ 95 % | 97,9 % | 99,5 % | Sí |
+| Latencia por imagen en CPU, de punta a punta | < 50 ms | 36,6 ms | **6,2 ms** | Sí |
 | Brecha con datos externos | reportarla | 48 % de fruta en *Mixed* | 59 % de fruta en *Mixed* | Reportada (5.6) |
 
 La latencia se midió con la predicción completa de la app (recorte, modelo, grado y segmentación del tamaño), mediana de 60 imágenes de prueba en un portátil con 4 hilos. En XGBoost, 33,5 de los 36,6 ms son la extracción de las 418 características; la CNN solo tarda 2,5 ms en el modelo.
@@ -119,7 +119,7 @@ La CNN concentra su atención en el centro, donde está la fruta: pone en el bor
 
 ![Mixed](../../reports/figures/res_mixed_cnn.svg)
 
-**Fotos propias.** El equipo anotó **48 manzanas** tomadas en casa, con fondo, luz y distancia distintos a los del dataset (protocolo y selección en `data/own/README.md`). De las 70 fotos iniciales se descartaron 22 que incumplían el protocolo —6 con varias frutas, 11 con sticker y 5 con mano dominante— y quedaron en `data/own/excluidas/`. Sobre las 48 válidas, la CNN acierta la fruta en el **83 %** (40/48; 4 se predicen como limón, 2 como granada, 1 como guayaba y 1 como naranja), pero el grado coincide solo en el **38 %** (18/48) y el tamaño en el **33 %** (16/48).
+**Fotos propias.** El equipo anotó **48 manzanas** tomadas en casa, con fondo, luz y distancia distintos a los del dataset (protocolo y selección en `data/own/README.md`). De las 70 fotos iniciales se descartaron 22 que incumplían el protocolo (6 con varias frutas, 11 con sticker y 5 con mano dominante). Sobre las 48 válidas, la CNN acierta la fruta en el **83 %** (40/48; 4 se predicen como limón, 2 como granada, 1 como guayaba y 1 como naranja), pero el grado coincide solo en el **38 %** (18/48) y el tamaño en el **33 %** (16/48).
 
 | Anotación (48 manzanas) | Primera | Segunda | Descarte | Aciertos |
 |---|---|---|---|---|

@@ -8,7 +8,6 @@ metadatos, aplicando antes la rotación EXIF para que la foto no quede girada:
 
 - ``data/own/images/``        manzanas anotadas en ``labels.csv``
 - ``data/own/otras_frutas/``  frutas que el modelo no conoce (``otras_frutas.csv``)
-- ``data/own/excluidas/``     manzanas que no cumplieron el protocolo de captura
 
 Uso:
     python -m src.data.strip_exif
@@ -21,7 +20,7 @@ from PIL import Image, ImageOps
 from src.utils.paths import OWN
 
 EXTS = {".jpg", ".jpeg", ".png"}
-FOLDERS = ("images", "otras_frutas", "excluidas")
+FOLDERS = ("images", "otras_frutas")
 
 
 def strip(path) -> bool:
